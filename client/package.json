@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  },
+  "scripts": {
+    "start:client": "cd client && npm run dev",
+    "start:server": "cd server && nodemon index.js",
+    "dev": "concurrently --kill-others \"npm run start:client\" \"npm run start:server\""
+  },
+  "name": "bookmydoc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

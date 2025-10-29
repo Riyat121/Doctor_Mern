@@ -1,0 +1,28 @@
+const categories = [
+  { id: "1",
+     type: "Dentist" ,
+    image :"https://images.unsplash.com/photo-1667133295315-820bb6481730?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGRlbnRpc3R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600",
+     description:"Caring for your teeth and gums" },
+  { id: "2",
+     type: "Gynecologist" ,
+     image:"https://plus.unsplash.com/premium_photo-1702599021402-a09c1f84601a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGd5bmVjb2xvZ2lzdHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600" ,
+     description:"Trusted reproductive and pregnancy care."},
+  { id: "3", 
+    type: "Dietitian",
+    image:"https://images.unsplash.com/photo-1585358682246-23acb1561f6b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZGlldGljaWFufGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600",
+    description:"Personalized nutrition for a healthier life." },
+  { id: "4" ,
+     type: "Physiotherapist",
+     image:"https://plus.unsplash.com/premium_photo-1661962597572-e0a140d8bc20?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGh5c2lvdGhlcmFweXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600" ,
+     description:"Recovery and mobility support."},
+  { id: "5", 
+    type: "Orthopedist",
+    image:"https://plus.unsplash.com/premium_photo-1661698435549-9df0a181eb7e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fG9ydGhvcGVkaXN0fGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600",
+    description :"Expert bone and joint care."},
+    { id: "6",
+    type: "cardiologist",
+    image:"https://plus.unsplash.com/premium_photo-1673958771882-df5e5765b146?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2FyZGlvbG9naXN0fGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600" ,
+     description:"Heart and vascular health specialists."},
+];
+
+export default categories;
