@@ -35,9 +35,11 @@ const dentistSchema = new mongoose.Schema({
         required: true,
     },
     services: {
-        type: String,
+        type: [String],
         required: true,
     },
-});
+    
+},
+ { timestamps: true });
 const Dentist = mongoose.model("Dentist", dentistSchema);
 export default Dentist;

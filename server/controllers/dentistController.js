@@ -1,10 +1,13 @@
-import Dentist from "../models/dentistModel";
+import Dentist from "../models/dentistModel.js";
 
 
 // get all dentists 
 export const getAllDentists = async (req,res)=>{
     try {
       const dentists = await Dentist.find();
+       if (!dentists.length) {
+      return res.status(200).json({ message: "No dentists found" });
+    }
       res.status(200).json(dentists);
 
     } catch (error) {
