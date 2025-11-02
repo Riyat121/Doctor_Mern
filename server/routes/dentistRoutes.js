@@ -3,6 +3,6 @@ import { getAllDentists,addDentist } from "../controllers/dentistController.js";
 
 const router = express.Router();
 router.get("/allDentists", getAllDentists);
-router.post("/addDoctor", addDentist);
+router.post("/addDentist", addDentist);
 
 export default router;
