@@ -3,6 +3,7 @@ import connectDB from "./config/config.js";   // connecting db to main file
 import cors from "cors";  // cors connected 
 import dotenv from "dotenv"; 
 import userRoutes from "./routes/userRoutes.js";
+import dentistRoutes from "./routes/dentistRoutes.js";
 dotenv.config();
 const app = express();
 
@@ -16,7 +17,7 @@ app.get('/',(req,res)=>{
 
 })
 app.use("/api/auth",userRoutes);
-
+app.use("/api/dentists", dentistRoutes);
 
 //connect db ans start server 
 const PORT = process.env.PORT || 3009;
