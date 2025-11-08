@@ -3,7 +3,7 @@ import Dietition from "../models/dietitionModel.js";
 export const getAllDietition = async(req,res)=>{
     try {
       const dietitions = await Dietition.find();
-      if(!dietition.length){
+      if(!dietitions.length){
         res.status(200).json({
             message:"no dietition found",
         })
