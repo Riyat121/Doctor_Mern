@@ -22,7 +22,7 @@ export const addCardiologist = async(req,res)=>{
     try {
         const cardiologist = new Cardiologist(req.body);
         await cardiologist.save();
-         res.status(201).json({ message: "Dentist added", dentist });
+         res.status(201).json({ message: "cardiologist added", cardiologist });
     } catch (error) {
           res.status(400).json({ message: "Error adding cardiologist", error });
     }
