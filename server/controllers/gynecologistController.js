@@ -23,7 +23,7 @@ export const getAllGynec = async(req,res)=>{
 //Post : add a new gynac
 export const addGynac = async(req,res)=>{
     try {
-      const gynac = new Gynecologist (req.body);
+      const gynac = new Gynecologist(req.body);
       await gynac.save();
       res.status(201).json({
         message:"gynac added", gynac
