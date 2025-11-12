@@ -26,7 +26,8 @@ const apiEndpoints = {
           return;
         }
 
-        const res = await axios.get(`${import.meta.env.VITE_API_URL}${endpoint}`);
+        const apiUrl = import.meta.env.VITE_API_URL || 'https://doctor-mern-kzd5.onrender.com';
+        const res = await axios.get(`${apiUrl}${endpoint}`);
         setDoctors(res.data);
       } catch (err) {
         console.error("Error fetching doctors:", err);
