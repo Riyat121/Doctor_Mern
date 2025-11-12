@@ -23,7 +23,7 @@ app.get('/',(req,res)=>{
 })
 app.use("/api/auth",userRoutes);
 app.use("/api/Dentist", dentistRoutes);
-app.use("/api/Gynecologist", gynacRoutes)
+app.use("/api/gynacs", gynacRoutes)
 app.use("/api/Cardiologist", cardiologistRoute)
 app.use("/api/Dietition", dietitionRoute);
 app.use("/api/Orthopedist", orthopedistRoute);
