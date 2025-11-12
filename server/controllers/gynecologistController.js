@@ -11,10 +11,10 @@ export const getAllGynec = async(req,res)=>{
                 }
             )
         }
-        res.status(400).json(gynec)
+        res.status(200).json(gynec)
     } catch (error) {
           res.status(500).json({
-             message:"error fetching dentists",
+             message:"error fetching gynecologists",
             error:error.message
           })
     }

@@ -22,12 +22,12 @@ app.get('/',(req,res)=>{
 
 })
 app.use("/api/auth",userRoutes);
-app.use("/api/dentists", dentistRoutes);
-app.use("/api/gynacs", gynacRoutes)
-app.use("/api/cardiologists", cardiologistRoute)
-app.use("/api/dietition", dietitionRoute);
-app.use("/api/orthopedist", orthopedistRoute);
-app.use("/api/physiotherapist" ,physiotherapistRoute)
+app.use("/api/Dentist", dentistRoutes);
+app.use("/api/Gynecologist", gynacRoutes)
+app.use("/api/Cardiologist", cardiologistRoute)
+app.use("/api/Dietition", dietitionRoute);
+app.use("/api/Orthopedist", orthopedistRoute);
+app.use("/api/Physiotherapist" ,physiotherapistRoute)
 
 //connect db ans start server 
 const PORT = process.env.PORT || 3009;
