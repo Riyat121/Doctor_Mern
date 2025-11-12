@@ -1,25 +1,43 @@
-import React from 'react'
-import doctorCategory from "../data/doctorCategory" 
-import CategoryCard from '../components/CategoryCard'
-function Category() {
+import { Link } from "react-router-dom";
+import categories from "../data/doctorCategory"; // Ensure correct path & export name
+
+function DoctorCategory() {
   return (
-    <div className='h-full w-full '>
-    <div>
-     <h1 className='font-extrabold p-5 ml-50 text-5xl'>We’ve Got the Right Doctor for Every Need</h1>   
-<div className='ml-20 p-10'>
-    <h2 className='font-medium text-2xl italic'>Book an appointment for an in-clinic consultation</h2>
-    <p className='text-1xl'>Find experienced doctors across all specialties</p>
- <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {doctorCategory.map((item) => (
-          <CategoryCard key={item.id} type={item.type} image={item.image} description ={item.description}/>
+    <div className="p-6 md:p-10">
+      <h1 className="text-2xl md:text-3xl font-bold text-center mb-8">
+        Choose a Specialist
+      </h1>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {categories.map((category) => (
+          <Link
+            key={category.id}
+            to={`/category/${category.type.toLowerCase()}`}
+            className="flex flex-col w-80 ml-20 bg-white  rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+          >
+            {/* Image */}
+            <div className="h-48 sm:h-56 md:h-64 w-full">
+              <img
+                src={category.image}
+                alt={category.type}
+                className="h-full w-full object-cover"
+              />
+            </div>
+
+            {/* Text Content */}
+            <div className="flex flex-col flex-1 p-4 md:p-5 text-center">
+              <h2 className="text-lg md:text-xl font-semibold capitalize mb-2 text-gray-800">
+                {category.type}
+              </h2>
+              <p className="text-sm md:text-base text-gray-600">
+                {category.description}
+              </p>
+            </div>
+          </Link>
         ))}
       </div>
-
-</div>
-
     </div>
-    </div>
-  )
+  );
 }
 
-export default Category
+export default DoctorCategory;
