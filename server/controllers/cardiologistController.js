@@ -4,11 +4,9 @@ export const getAllCardiologists = async(req,res)=>{
     try {
        const cardiologists = await Cardiologist.find();
         if(!cardiologists.length){
-            res.status(200).json({
-                message:"no cardiologists found",
-            })
+            return res.status(200).json([]);
         }
-        res.status(400).json(cardiologists)
+        res.status(200).json(cardiologists)
     } catch (error) {
          res.status(500).json({
             message :"error fetching cardiologists",

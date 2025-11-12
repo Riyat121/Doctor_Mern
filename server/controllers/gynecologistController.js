@@ -5,11 +5,7 @@ export const getAllGynec = async(req,res)=>{
     try {
         const gynec = await Gynecologist.find();
         if(!gynec.length){
-            return res.status(200).json(
-                {
-                    message:"no gynac found!"
-                }
-            )
+            return res.status(200).json([]);
         }
         res.status(200).json(gynec)
     } catch (error) {

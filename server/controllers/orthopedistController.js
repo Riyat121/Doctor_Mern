@@ -4,15 +4,13 @@ export const getAllOrthopedist = async(req,res)=>{
   try {
       const orthopedists = await Orthopedist.find();
     if(!orthopedists.length){
-        res.status(200).json({
-            message:"no orthopedist found ",
-
-        })
+        return res.status(200).json([]);
     } 
-    res.status(500).json(orthopedists)
+    res.status(200).json(orthopedists)
   } catch (error) {
-    res.status(400).json({
-        message:"cannot find orthopedist",
+    res.status(500).json({
+        message:"error fetching orthopedists",
+        error:error.message
     })
   }
 }
@@ -22,8 +20,9 @@ export const getAllOrthopedist = async(req,res)=>{
     try {
      const orthopedist = new Orthopedist(req.body);
     await  orthopedist.save();
-    res.status(200).json({
-        message: "orthopedist added ", orthopedist
+    res.status(201).json({
+        message: "orthopedist added ",
+        orthopedist
     })
     } catch (error) {
         res.status(500).json({

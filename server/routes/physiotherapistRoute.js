@@ -4,7 +4,7 @@ import { getAllPhysiotherapist , addPhysiothrapist } from "../controllers/physio
 
 const router = express.Router();
 
-router.get("/getAllPhysiothearpist" , getAllPhysiotherapist);
-router.post("/addPhysiotherapist", addPhysiothrapist)
+router.get("/" , getAllPhysiotherapist);
+router.post("/", addPhysiothrapist)
 
 export default router;

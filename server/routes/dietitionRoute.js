@@ -3,6 +3,6 @@ import { getAllDietition , addDietition } from "../controllers/dietitionControll
 
 const router = express.Router();
 
-router.get("/getAllDietition" , getAllDietition);
-router.post("/addDietition" , addDietition);
+router.get("/" , getAllDietition);
+router.post("/" , addDietition);
 export default router;

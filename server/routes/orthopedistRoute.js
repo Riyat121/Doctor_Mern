@@ -3,7 +3,7 @@ import { getAllOrthopedist , addOrthopedist } from "../controllers/orthopedistCo
 
 const router = express.Router();
   
-router.get("/getAllOrthopedist" , getAllOrthopedist);
-router.post("/addOrthopedist" , addOrthopedist);
+router.get("/" , getAllOrthopedist);
+router.post("/" , addOrthopedist);
 
 export default router;

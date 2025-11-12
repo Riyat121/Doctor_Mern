@@ -4,16 +4,14 @@ export const getAllPhysiotherapist = async(req,res)=>{
     try {
       const physiotherapists =await Physiotherapist.find();
       if(!physiotherapists.length){
-        res.status(400).json({
-            message:"no physiotherapist exists "
-        })
+        return res.status(200).json([]);
       }  
 
       res.status(200).json(physiotherapists)
     } catch (error) {
-        res.status(400).json({
+        res.status(500).json({
+            message:"error fetching physiotherapist ",
             error:error.message,
-            message:"error fetching physiotherapist "
         })
     }
 }
@@ -23,7 +21,10 @@ export const addPhysiothrapist =async(req,res)=>{
     try {
       const physiotherapist = new Physiotherapist(req.body);
       await physiotherapist.save();
-      res.status(200).json(physiotherapist)  
+      res.status(201).json({
+        message:"physiotherapist added",
+        physiotherapist
+      })  
     } catch (error) {
         res.status(400).json({
             message:"cannot add new physiothrapist",
