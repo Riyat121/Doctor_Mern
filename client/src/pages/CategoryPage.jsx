@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import API from "../api";
 
 const DoctorList = () => {
   const { category } = useParams();
@@ -8,13 +8,14 @@ const DoctorList = () => {
   const [loading, setLoading] = useState(true);
 
   // ✅ Map frontend category names to backend endpoints
+  // Note: baseURL in api.js already includes '/api', so endpoints should not include it
 const apiEndpoints = {
-  dentist: "/api/dentists",
-  gynecologist: "/api/gynecologists",
-  cardiologist: "/api/cardiologists",
-  dietitian: "/api/dietitions",
-  orthopedist: "/api/orthopedists",
-  physiotherapist: "/api/physiotherapists",
+  dentist: "/dentists",
+  gynecologist: "/gynecologists",
+  cardiologist: "/cardiologists",
+  dietitian: "/dietitions",
+  orthopedist: "/orthopedists",
+  physiotherapist: "/physiotherapists",
 };
 
   useEffect(() => {
@@ -26,8 +27,7 @@ const apiEndpoints = {
           return;
         }
 
-        const apiUrl = import.meta.env.VITE_API_URL || 'https://doctor-mern-kzd5.onrender.com';
-        const res = await axios.get(`${apiUrl}${endpoint}`);
+        const res = await API.get(endpoint);
         setDoctors(res.data);
       } catch (err) {
         console.error("Error fetching doctors:", err);
