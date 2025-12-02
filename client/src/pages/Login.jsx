@@ -1,26 +1,35 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import axios from "axios";
 import API from "../api";
-
-
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await API.post("/login", { email, password });
+      const res = await API.post("/auth/login", { email, password });
 
       // Save JWT token
       localStorage.setItem("token", res.data.token);
 
-      // Success message
-      alert("Login successful!");
+      // Save user info (role will help in redirecting)
+      localStorage.setItem("user", JSON.stringify(res.data.user));
+
+      const role = res.data.user.role;
+
+      // Redirect based on role
+      if (role === "admin") {
+        navigate("/admin/dashboard");
+      } else if (role === "doctor") {
+        navigate("/doctor/dashboard");
+      } else {
+        navigate("/user/dashboard");
+      }
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");
     }
