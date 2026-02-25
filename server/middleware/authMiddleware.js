@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import User from "../models/userModel.js";
 
+// 🔐 Protect Routes (Check Token)
 export const protect = async (req, res, next) => {
   let token;
 
@@ -11,17 +12,15 @@ export const protect = async (req, res, next) => {
     try {
       token = req.headers.authorization.split(" ")[1];
 
-      // Decode token
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-      // Fetch full user from DB
       const user = await User.findById(decoded.id).select("-password");
 
       if (!user) {
         return res.status(404).json({ message: "User no longer exists" });
       }
 
-      req.user = user; // full user data inside req.user
+      req.user = user;
 
       next();
 
@@ -33,4 +32,16 @@ export const protect = async (req, res, next) => {
   if (!token) {
     return res.status(401).json({ message: "No token provided" });
   }
+};
+
+// 🛑 Role Based Access
+export const authorizeRoles = (...roles) => {
+  return (req, res, next) => {
+    if (!roles.includes(req.user.role)) {
+      return res.status(403).json({
+        message: `Role ${req.user.role} is not allowed to access this route`
+      });
+    }
+    next();
+  };
 };

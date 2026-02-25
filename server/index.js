@@ -9,6 +9,7 @@ import cardiologistRoute from "./routes/cardiologistRoute.js"
 import dietitionRoute from "./routes/dietitionRoute.js";
 import orthopedistRoute from "./routes/orthopedistRoute.js"
 import physiotherapistRoute from "./routes/physiotherapistRoute.js"
+import appointmentRoutes from "./routes/appointmentroutes.js";
 dotenv.config();
 const app = express();
 
@@ -28,7 +29,7 @@ app.use("/api/cardiologists", cardiologistRoute)
 app.use("/api/dietitions", dietitionRoute);
 app.use("/api/orthopedists", orthopedistRoute);
 app.use("/api/physiotherapists" ,physiotherapistRoute)
-
+app.use("/api/appointments", appointmentRoutes);
 //connect db ans start server 
 const PORT = process.env.PORT || 3009;
 
