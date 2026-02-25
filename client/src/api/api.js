@@ -1,7 +1,12 @@
 import axios from "axios";
 
+const apiBaseUrl =
+  import.meta.env.VITE_API_URL?.replace(/\/$/, "").endsWith("/api")
+    ? import.meta.env.VITE_API_URL?.replace(/\/$/, "")
+    : `${import.meta.env.VITE_API_URL?.replace(/\/$/, "") || "http://localhost:5000"}/api`;
+
 const API = axios.create({
-  baseURL: "http://localhost:5000/api",  // your backend URL
+  baseURL: apiBaseUrl,
 });
 
 // Add token automatically to all requests
