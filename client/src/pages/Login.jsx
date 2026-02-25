@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import API from "../api";
+import API from "../api/api";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -28,7 +28,7 @@ const Login = () => {
       } else if (role === "doctor") {
         navigate("/doctor/dashboard");
       } else {
-        navigate("/user/dashboard");
+        navigate("/UserDashboard");
       }
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");

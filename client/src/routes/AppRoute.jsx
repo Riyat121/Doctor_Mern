@@ -5,7 +5,8 @@ import Home from "../pages/Home";
 import Login from "../pages/Login.jsx";
 import Signup from "../pages/Signup.jsx";
 import DoctorDetails from "../pages/DoctorDetails.jsx";
-import CategoryPage from "../pages/CategoryPage.jsx"
+import CategoryPage from "../pages/CategoryPage.jsx";
+import UserDashboard from "../pages/UserDashboard";
 function AppRoute() {
   return (
    
@@ -16,6 +17,7 @@ function AppRoute() {
      
           <Route path="/category/:category" element={<CategoryPage />}></Route>
              <Route path="/doctor/:id" element={<DoctorDetails />} />
+             <Route path ="/UserDashboard" element={<UserDashboard/>}></Route>
       </Routes>
    
   );
